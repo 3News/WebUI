@@ -1,0 +1,20 @@
+<!-- partials/page.html -->
+<h1>{{page.title}}</h1>
+
+<section id="wrapper">
+
+<div id="pinterest" my-pinterest="{numOfCol:5}" infinite-scroll="loadMore()" infinite-scroll-distance="2">
+    	<div class="block" ng-repeat="article in articles">
+    		<div class="imgholder">
+				<img src="{{article.image_url}}">
+			</div>
+			<strong>{{article.title}}</strong>
+			<p>
+					{{article.content}}
+			</p>
+			<div class="meta">
+					{{article.writer}}
+			</div>
+    	</div>
+</div>
+</section>
