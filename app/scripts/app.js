@@ -40,7 +40,9 @@ angular.module('NewsQApp', ['ngResource', 'infinite-scroll'])
 function AppController ($scope, $rootScope, $http) {
   	// Load pages on startup
   	$rootScope.loggedin = false;
-  	$scope.articles = [
+  	$scope.users = User.query();
+  	
+/*  	$scope.articles = [
 			{
 				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
 				"title": "Bridge to Heaven",
@@ -108,7 +110,7 @@ function AppController ($scope, $rootScope, $http) {
 				"writer": "by SigitEko"
 			}
   	];
-  	
+*/  	
   	$scope.loadMore = function() {
 		for(var i = 1; i <= 8; i++) {
 		  	$scope.articles.push(
