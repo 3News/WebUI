@@ -6,7 +6,7 @@
 <div id="pinterest" my-pinterest = "{numOfCol:5}" infinite-scroll='loadMore()' infinite-scroll-distance='2'>
     	<div class="block" ng-repeat='article in articles' >
     		<div class="imgholder">
-				<img src="{{article.image_url}}" />
+				<img ng-src="{{article.image_url}}" />
 			</div>
 			<strong>{{article.title}}</strong>
 			<p>
