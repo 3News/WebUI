@@ -41,6 +41,7 @@ function AppController ($scope, $rootScope, $http) {
   	// Load pages on startup
   	$rootScope.loggedin = false;
   	$scope.users = User.query();
+  	$scope.articles = Article.query();
   	
 /*  	$scope.articles = [
 			{
