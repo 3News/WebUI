@@ -22,6 +22,12 @@ angular.module('NewsQApp', ['ngResource', 'infinite-scroll'])
     })
 })
 
+.factory("Article", function($resource) {
+    return $resource("resources/:articleId.json", {}, {
+        query: {method: "GET", params: {articleId: "articles"}, isArray: true}
+    })
+})
+
 .run(function($rootScope, $window){
 	$rootScope.windowWidth = $window.outerWidth;
 	angular.element($window).bind('resize',function(){
@@ -31,86 +37,25 @@ angular.module('NewsQApp', ['ngResource', 'infinite-scroll'])
  	});
 });
 
+
+
+var $injector = angular.injector(['NewsQApp']);
+var User = $injector.get('User');
+var Article = $injector.get('Article');
+
 function AppController ($scope, $rootScope, $http) {
   	// Load pages on startup
   	$rootScope.loggedin = false;
   	$scope.users = User.query();
-  	
-  	$scope.articles = [
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			},
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			},
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			},
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			},
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			},
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			},
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			},
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			},
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			},
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			},
-			{
-				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-				"title": "Bridge to Heaven",
-				"content": "Where is the bridge lead to?",
-				"writer": "by SigitEko"
-			}
-  	];
-  	
+  	$scope.articles = Article.query();
+
   	$scope.loadMore = function() {
 		for(var i = 1; i <= 8; i++) {
 		  	$scope.articles.push(
 				{
+					"articleId": 99,
 					"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
-					"title": "Bridge to Heaven",
+					"title": "Bridge to Heaven - added",
 					"content": "Where is the bridge lead to?",
 					"writer": "by SigitEko"
 				}
@@ -153,4 +98,5 @@ function AppController ($scope, $rootScope, $http) {
   		console.log( "[AppController]$rootScope.$watch" + newVal );
 	});
 }
+
 AppController.$inject = ['$scope', '$rootScope', '$http'];
