@@ -22,12 +22,6 @@ angular.module('NewsQApp', ['ngResource', 'infinite-scroll'])
     })
 })
 
-.factory("Articles", function($resource) {
-    return $resource("resources/:articleId.json", {}, {
-        query: {method: "GET", params: {userId: "articles"}, isArray: true}
-    })
-})
-
 .run(function($rootScope, $window){
 	$rootScope.windowWidth = $window.outerWidth;
 	angular.element($window).bind('resize',function(){
