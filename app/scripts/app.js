@@ -22,7 +22,6 @@ angular.module('NewsQApp', ['ngResource', 'infinite-scroll'])
     })
 })
 
-
 .run(function($rootScope, $window){
 	$rootScope.windowWidth = $window.outerWidth;
 	angular.element($window).bind('resize',function(){
