@@ -36,7 +36,7 @@ function AppController ($scope, $rootScope, $http) {
   	$rootScope.loggedin = false;
   	$scope.users = User.query();
   	
-/*  	$scope.articles = [
+  	$scope.articles = [
 			{
 				"image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
 				"title": "Bridge to Heaven",
@@ -104,7 +104,7 @@ function AppController ($scope, $rootScope, $http) {
 				"writer": "by SigitEko"
 			}
   	];
-*/  	
+  	
   	$scope.loadMore = function() {
 		for(var i = 1; i <= 8; i++) {
 		  	$scope.articles.push(
