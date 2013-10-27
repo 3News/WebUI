@@ -43,6 +43,7 @@ var $injector = angular.injector(['NewsQApp']);
 var User = $injector.get('User');
 var Article = $injector.get('Article');
 
+
 function AppController ($scope, $rootScope, $http) {
   	// Load pages on startup
   	$rootScope.loggedin = false;

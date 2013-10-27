@@ -1,5 +1,4 @@
-{     
-    "Articles" : [
+[     
         {
         	"articleId": 1,
             "title": "Bridge to Heaven",
@@ -63,5 +62,4 @@
             "image_url": "http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg",
             "writer": "by SigitEko"
         }
-    ]
-}
+]
